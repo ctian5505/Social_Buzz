@@ -19,7 +19,7 @@ GROUP BY Category
 ORDER BY Category
 
 
--- Data Cleaning/Display
+-- Data Joining
 SELECT 
 	Reac.F1
 	, Reac.[Content ID]
