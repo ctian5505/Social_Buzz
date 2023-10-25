@@ -63,3 +63,12 @@ ON
 SELECT TOP 5 Category, COUNT(*) AS Category_Count, RANK() OVER (ORDER BY COUNT(Category) DESC) AS Rank
 FROM Social_Buzz
 GROUP BY Category
+
+--- Conclusion
+
+The top 5 performing categories are:
+animals	= 1738
+science	= 1646
+healthy eating	= 1572
+technology	= 1557
+food	= 1556
