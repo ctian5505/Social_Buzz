@@ -17,3 +17,27 @@ SELECT TOP 5 Category, COUNT(*) AS Categories
 FROM Content
 GROUP BY Category
 ORDER BY Category
+
+
+-- Data Cleaning/Display
+SELECT 
+	Reac.F1
+	, Reac.[Content ID]
+	, Reac.[Reaction Type]
+	, Reac.Datetime 
+	, Cont.[Content Type]
+	, Cont.Category
+	, Rtype.Sentiment
+	, Rtype.Score
+FROM 
+	Reactions AS Reac
+LEFT JOIN 
+	Content AS Cont
+ON 
+	Reac.[Content ID] = Cont.[Content ID]
+LEFT JOIN 
+	Reaction_Type AS Rtype
+ON 
+	Reac.[Reaction Type] = Rtype.Reaction_Type
+ORDER BY 
+	Reac.F1
