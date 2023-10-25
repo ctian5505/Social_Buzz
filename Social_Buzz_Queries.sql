@@ -69,3 +69,11 @@ FROM
 	CTE_Social_Buzz
 GROUP BY 
 	Category
+
+--- Conclusion
+The top 5 performing categories are: 
+animals = 68624
+science	= 65405
+healthy eating	= 63138
+technology = 63035
+food = 61598
