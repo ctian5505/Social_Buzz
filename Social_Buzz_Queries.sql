@@ -39,7 +39,7 @@ ORDER BY
 
 --- Figure out the Top 5 performing categories
 
-With Social_Buzz AS (
+With CTE_Social_Buzz AS (
 SELECT 
 	Reac.F1
 	, Reac.[Content ID]
@@ -60,15 +60,12 @@ LEFT JOIN
 ON 
 	Reac.[Reaction Type] = Rtype.Reaction_Type
 )
-SELECT TOP 5 Category, COUNT(*) AS Category_Count, RANK() OVER (ORDER BY COUNT(Category) DESC) AS Rank
-FROM Social_Buzz
-GROUP BY Category
 
---- Conclusion
-
-The top 5 performing categories are:
-animals	= 1738
-science	= 1646
-healthy eating	= 1572
-technology	= 1557
-food	= 1556
+SELECT TOP 5
+	Category
+	, SUM(Score) AS Aggregrate_Score 
+	, RANK() OVER (ORDER BY SUM(Score) DESC) AS Rank
+FROM 
+	CTE_Social_Buzz
+GROUP BY 
+	Category
